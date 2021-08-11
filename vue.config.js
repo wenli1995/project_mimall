@@ -1,0 +1,21 @@
+module.exports = {
+    devServer:{
+      host:'localhost',
+      port:8080,
+      proxy:{
+        '/api':{
+          target:'http://mall-pre.springboot.cn',
+          changeOrigin:true,
+          pathRewrite:{
+            '/api':''
+          }
+        }
+      }
+    },
+    //设置为false源码会被压缩
+    productionSourceMap:false,
+    //按需加载，空闲时间也不下载文件
+    chainWebpack:(config)=>{
+      config.plugins.delete('prefetch');
+    }
+  }

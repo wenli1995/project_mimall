@@ -1,0 +1,65 @@
+.modal{
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:10;
+    width:100%;
+    height:100%;
+    //动画
+    &.v-enter-active,.v-leave-active{
+        transition:top 0.5s 
+    }
+    &.v-enter-from,.v-leave-to{
+        top:-100%;
+    }
+    &.v-enter-to,.v-leave-from{
+        top:0
+    }
+    .modal-mask{
+        background-color:#000000;
+        opacity: 0.6;
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+    }
+    .modal-dialog{
+        position:absolute;
+        top:40%;  //设置以包含元素的百分比计的上边位置
+        left:50%;
+        transform: translate(-50%,-50%); 
+        //在不知宽高的情况下，使得元素居中，50%是相对于自身宽高计算，进行平移
+        width:660px;
+        height:auto;  //高度根据内容多少自适应
+        .modal-title{
+            height:60px;
+            line-height: 60px;
+            background-color: #F5F5F5;
+            padding-left: 26px;
+            font-size:16px;
+            position: relative;
+            .icon-close{
+                display: inline-block;
+                position: absolute;
+                top:25px;
+                right:23px;
+                width:16px;
+                height:14px;
+                background:url("../../public/imgs/icon-close.png") no-repeat center ;
+                background-size:contain;
+            }
+        }
+        .modal-content{
+            padding:42px 40px 54px;
+            background-color: #FFFFFF;
+            font-size:14px;
+        }
+        .modal-footer{
+            height:82px;
+            line-height: 82px;
+            background-color: #F5F5F5;
+            text-align: center;
+        }
+    }
+}
